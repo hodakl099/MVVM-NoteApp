@@ -1,0 +1,17 @@
+package com.example.noteapp_mvvm.ui.theme.todo_list
+
+import com.example.noteapp_mvvm.data.Todo
+
+
+/**
+ * an event Class [TodoListEvent] that represents  events that happens on the UI,
+ * and sends these events to the corresponding ViewModel [TodoListViewModel].
+ */
+
+sealed class TodoListEvent {
+    data class OnDeleteTodoClick(val todo: Todo): TodoListEvent()
+    data class OnDoneChange(val todo: Todo, val isDone: Boolean): TodoListEvent()
+    object OnUndoDeleteClick: TodoListEvent()
+    data class OnTodoClick(val todo: Todo): TodoListEvent()
+    object OnAddTodoClick: TodoListEvent()
+}
